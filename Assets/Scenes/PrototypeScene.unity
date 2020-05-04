@@ -173,7 +173,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 1
+  orthographic: 0
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -197,13 +197,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 310817754}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 10, z: 0}
+  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: 10, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
 --- !u!1 &357830299
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,6 +408,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2034197352}
     m_Modifications:
+    - target: {fileID: 1280663194835681938, guid: ed0d6bcfc01c92346a182e68ce4bac00,
+        type: 3}
+      propertyPath: onCollideWhileOpen.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1422510032}
+    - target: {fileID: 1280663194835681938, guid: ed0d6bcfc01c92346a182e68ce4bac00,
+        type: 3}
+      propertyPath: onCollideWhileClosed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1422510032}
+    - target: {fileID: 1280663194835681938, guid: ed0d6bcfc01c92346a182e68ce4bac00,
+        type: 3}
+      propertyPath: onCollideWhileOpen.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeScore
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280663194835681938, guid: ed0d6bcfc01c92346a182e68ce4bac00,
+        type: 3}
+      propertyPath: onCollideWhileClosed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeScore
+      objectReference: {fileID: 0}
     - target: {fileID: 1280663194835681939, guid: ed0d6bcfc01c92346a182e68ce4bac00,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -585,6 +605,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1013062248}
     m_Modifications:
+    - target: {fileID: 1280663194835681938, guid: ed0d6bcfc01c92346a182e68ce4bac00,
+        type: 3}
+      propertyPath: onCollideWhileOpen.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1422510032}
+    - target: {fileID: 1280663194835681938, guid: ed0d6bcfc01c92346a182e68ce4bac00,
+        type: 3}
+      propertyPath: onCollideWhileClosed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1422510032}
+    - target: {fileID: 1280663194835681938, guid: ed0d6bcfc01c92346a182e68ce4bac00,
+        type: 3}
+      propertyPath: onCollideWhileOpen.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeScore
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280663194835681938, guid: ed0d6bcfc01c92346a182e68ce4bac00,
+        type: 3}
+      propertyPath: onCollideWhileClosed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeScore
+      objectReference: {fileID: 0}
     - target: {fileID: 1280663194835681939, guid: ed0d6bcfc01c92346a182e68ce4bac00,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -974,6 +1014,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1623475040}
     m_Modifications:
+    - target: {fileID: 1280663194835681938, guid: ed0d6bcfc01c92346a182e68ce4bac00,
+        type: 3}
+      propertyPath: onCollideWhileOpen.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1422510032}
+    - target: {fileID: 1280663194835681938, guid: ed0d6bcfc01c92346a182e68ce4bac00,
+        type: 3}
+      propertyPath: onCollideWhileClosed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1422510032}
+    - target: {fileID: 1280663194835681938, guid: ed0d6bcfc01c92346a182e68ce4bac00,
+        type: 3}
+      propertyPath: onCollideWhileOpen.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeScore
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280663194835681938, guid: ed0d6bcfc01c92346a182e68ce4bac00,
+        type: 3}
+      propertyPath: onCollideWhileClosed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeScore
+      objectReference: {fileID: 0}
     - target: {fileID: 1280663194835681939, guid: ed0d6bcfc01c92346a182e68ce4bac00,
         type: 3}
       propertyPath: m_LocalPosition.x
