@@ -10,11 +10,22 @@ public class ShotSpawnerController : MonoBehaviour
     private Transform shotSpawn;
     [SerializeField]
     private float shotSpeed;
+    [SerializeField]
+    private float shotDelay;
+
+    private float time;
+
+    private void Start()
+    {
+        time = shotDelay;
+    }
 
     private void Update()
     {
+        time += Time.deltaTime;
+
 #if UNITY_EDITOR
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
             Shoot();
         }
@@ -23,7 +34,11 @@ public class ShotSpawnerController : MonoBehaviour
 
     private void Shoot()
     {
-        GameObject shot = Instantiate(bullet, shotSpawn.position, Quaternion.Euler(90, 0, 0));
-        shot.GetComponent<Rigidbody>().AddForce(0, 0, shotSpeed);
+        if (time >= shotDelay)
+        {
+            time = 0f;
+            GameObject shot = Instantiate(bullet, shotSpawn.position, Quaternion.Euler(90, 0, 0));
+            shot.GetComponent<Rigidbody>().AddForce(0, 0, shotSpeed);
+        }
     }
 }
