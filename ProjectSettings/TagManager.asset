@@ -42,3 +42,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 3634466177
+    locked: 0
+  - name: Pizza
+    uniqueID: 888236529
+    locked: 0

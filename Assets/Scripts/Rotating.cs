@@ -5,8 +5,6 @@ using UnityEngine;
 public class Rotating : MonoBehaviour
 {
     [SerializeField]
-    private Transform circleCenter;
-    [SerializeField]
     private float angularSpeed;
     [SerializeField]
     private bool isClockwise = true;
@@ -14,6 +12,6 @@ public class Rotating : MonoBehaviour
     private void Update()
     {
         float angle = Mathf.Rad2Deg * Time.deltaTime * angularSpeed * (isClockwise ? 1 : -1);
-        transform.RotateAround(circleCenter.position, Vector3.up, angle);
+        transform.RotateAround(transform.position, Vector3.forward, angle);
     }
 }
