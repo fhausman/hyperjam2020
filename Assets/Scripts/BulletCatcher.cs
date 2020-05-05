@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BulletCatcher : MonoBehaviour
 {
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        Destroy(other.gameObject);
+        Destroy(collision.gameObject);
     }
 }

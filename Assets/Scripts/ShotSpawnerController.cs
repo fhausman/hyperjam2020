@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class ShotSpawnerController : MonoBehaviour
 {
@@ -25,7 +26,7 @@ public class ShotSpawnerController : MonoBehaviour
         time += Time.deltaTime;
 
 #if UNITY_EDITOR
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             Shoot();
         }
@@ -37,8 +38,8 @@ public class ShotSpawnerController : MonoBehaviour
         if (time >= shotDelay)
         {
             time = 0f;
-            GameObject shot = Instantiate(bullet, shotSpawn.position, Quaternion.Euler(90, 0, 0));
-            shot.GetComponent<Rigidbody>().AddForce(0, 0, shotSpeed);
+            GameObject shot = Instantiate(bullet, shotSpawn.position, new Quaternion());
+            shot.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, shotSpeed));
         }
     }
 }
