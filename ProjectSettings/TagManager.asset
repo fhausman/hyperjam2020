@@ -4,8 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Rabbit
-  - Enemy
+  - Bullet
   layers:
   - Default
   - TransparentFX
