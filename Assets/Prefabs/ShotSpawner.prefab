@@ -110,6 +110,7 @@ MonoBehaviour:
   bullet: {fileID: 3499277364366820993, guid: 8be62a2ec70513a4da7f24add181022b, type: 3}
   shotSpawn: {fileID: 5176153426549884686}
   shotSpeed: 400
+  shotDelay: 0.25
 --- !u!1 &5176153426549884687
 GameObject:
   m_ObjectHideFlags: 0
