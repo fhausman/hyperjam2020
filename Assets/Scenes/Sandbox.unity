@@ -1080,6 +1080,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7771d9398b6de7148afdfcd2ea9551c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1875100056}
   pauseScreen: {fileID: 2070198657}
   lostScreen: {fileID: 1196563928}
   lostScoreText: {fileID: 1855582320}
@@ -1088,6 +1089,7 @@ MonoBehaviour:
   healthBar: {fileID: 919227241}
   scoreText: {fileID: 2028029810}
   soundToggle: {fileID: 736798934}
+  cameraShake: {fileID: 1582373098}
   heathBarReductionSpeed: 0.109
 --- !u!4 &1525609526
 Transform:
@@ -1114,6 +1116,7 @@ GameObject:
   - component: {fileID: 1582373097}
   - component: {fileID: 1582373096}
   - component: {fileID: 1582373095}
+  - component: {fileID: 1582373098}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1186,6 +1189,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1582373098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582373094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e4a6e23bcf7af24aadbe900d10c12f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 1582373097}
+  duration: 0.5
+  strength: 0.7
 --- !u!1 &1650693646
 GameObject:
   m_ObjectHideFlags: 0
@@ -1456,6 +1474,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1875100056 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5176153425538109113, guid: 8581590f69d4ebc43b07a48c4c438660,
+    type: 3}
+  m_PrefabInstance: {fileID: 5176153425737182895}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74e15825555015a4cbce48fe25edfbc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1973488191 stripped

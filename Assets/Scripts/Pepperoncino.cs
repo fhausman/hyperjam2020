@@ -22,5 +22,6 @@ public class Pepperoncino : MonoBehaviour
     public void OnPepperoncinoShot()
     {
         gameController.Lost();
+        gameController.CameraShake();
     }
 }
