@@ -38,6 +38,8 @@ public class GameController : MonoBehaviour
     private int score = 0;
     private Vector2 healthBarSize;
     private float nextHealthBarWidth;
+    private int currentLevel = 1;
+    private int maxLevelsCount = 2;
 
     private void Awake()
     {
@@ -144,10 +146,19 @@ public class GameController : MonoBehaviour
 
     public void Won()
     {
-        winScreen.SetActive(true);
-        winScoreText.text = "Score: \n" + score;
-        gui.SetActive(false);
-        player.SetInactive();
+        //load another level?
+        //currentLevel++
+        //if (currentLevel < maxLevelsCount)
+        //{
+        //    SceneManager.LoadScene("Level" + currentLevel);
+        //}
+        //else
+        {
+            winScreen.SetActive(true);
+            winScoreText.text = "Score: \n" + score;
+            gui.SetActive(false);
+            player.SetInactive();
+        }
     }
 
     public void Lost()
