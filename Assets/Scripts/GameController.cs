@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Linq.Expressions;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -6,6 +8,10 @@ public class GameController : MonoBehaviour
 {
     [SerializeField]
     private ShotSpawnerController player;
+    [SerializeField]
+    private GameObject startScreen;
+    [SerializeField]
+    private GameObject gui;
     [SerializeField]
     private GameObject pauseScreen;
     [SerializeField]
@@ -69,6 +75,27 @@ public class GameController : MonoBehaviour
         healthBar.rectTransform.sizeDelta = new Vector2(
             Mathf.Lerp(healthBar.rectTransform.sizeDelta.x, nextHealthBarWidth, heathBarReductionSpeed),
             healthBarSize.y);
+
+        if(startScreen.active)
+        {
+            if(Input.GetMouseButtonDown(0))
+            {
+                StartCoroutine(StartGame());
+            }
+        }    
+    }
+
+    IEnumerator StartGame()
+    {
+        var animCtrl = startScreen.GetComponentInChildren<Animator>();
+        animCtrl.Play("FastPulse");
+
+        yield return new WaitForSeconds(0.8f);
+
+        animCtrl.Play("BasicPulse");
+        startScreen.SetActive(false);
+        gui.SetActive(true);
+        player.SetActive();
     }
 
     public void Pause()
@@ -77,12 +104,14 @@ public class GameController : MonoBehaviour
         {
             Time.timeScale = 1;
             pauseScreen.SetActive(false);
+            gui.SetActive(false);
             isPaused = false;
         }
         else
         {
             Time.timeScale = 0;
             pauseScreen.SetActive(true);
+            gui.SetActive(true);
             isPaused = true;
         }
     }
@@ -117,6 +146,7 @@ public class GameController : MonoBehaviour
     {
         winScreen.SetActive(true);
         winScoreText.text = "Score: \n" + score;
+        gui.SetActive(false);
         player.SetInactive();
     }
 
@@ -124,6 +154,7 @@ public class GameController : MonoBehaviour
     {
         lostScreen.SetActive(true);
         lostScoreText.text = "Score: \n" + score;
+        gui.SetActive(false);
         player.SetInactive();
     }
 
