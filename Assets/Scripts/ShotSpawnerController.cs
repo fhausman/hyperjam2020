@@ -11,7 +11,7 @@ public class ShotSpawnerController : MonoBehaviour
     private float shotDelay;
 
     private float time;
-    private bool active = true;
+    private bool active = false;
 
     private void Start()
     {
