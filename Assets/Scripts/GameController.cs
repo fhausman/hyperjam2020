@@ -11,15 +11,23 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private Text lostScoreText;
     [SerializeField]
+    private GameObject winScreen;
+    [SerializeField]
+    private Text winScoreText;
+    [SerializeField]
     private Image healthBar;
     [SerializeField]
     private Text scoreText;
     [SerializeField]
     private Toggle soundToggle;
+    [SerializeField]
+    [Range(0, 1)]
+    private float heathBarReductionSpeed = 1f;
 
     private bool isPaused = false;
     private int score = 0;
     private Vector2 healthBarSize;
+    private float nextHealthBarWidth;
 
     private void Awake()
     {
@@ -49,6 +57,14 @@ public class GameController : MonoBehaviour
     {
         scoreText.text = score.ToString();
         healthBarSize = healthBar.rectTransform.sizeDelta;
+        nextHealthBarWidth = healthBarSize.x;
+    }
+
+    private void Update()
+    {
+        healthBar.rectTransform.sizeDelta = new Vector2(
+            Mathf.Lerp(healthBar.rectTransform.sizeDelta.x, nextHealthBarWidth, heathBarReductionSpeed),
+            healthBarSize.y);
     }
 
     public void Pause()
@@ -69,7 +85,7 @@ public class GameController : MonoBehaviour
 
     public void ModifyHealthBar(float ratio)
     {
-        healthBar.rectTransform.sizeDelta = new Vector2(healthBarSize.x * ratio, healthBarSize.y);
+        nextHealthBarWidth = healthBarSize.x * ratio;
     }
 
     public void IncreaseScore(int add)
@@ -93,11 +109,18 @@ public class GameController : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    public void Won()
+    {
+        Time.timeScale = 0;
+        winScreen.SetActive(true);
+        winScoreText.text = "Score: \n" + score;
+    }
+
     public void Lost()
     {
         Time.timeScale = 0;
         lostScreen.SetActive(true);
-        lostScoreText.text = "Your score: \n" + score;
+        lostScoreText.text = "Score: \n" + score;
     }
 
     public void Restart()

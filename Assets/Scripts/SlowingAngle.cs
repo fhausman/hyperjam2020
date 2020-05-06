@@ -15,7 +15,7 @@ public class SlowingAngle : MonoBehaviour
 
     private Rotating rotating;
     private float normalAngularSpeed;
-    public bool isSlowed = false;
+    private bool isSlowed = false;
 
     private void Start()
     {
