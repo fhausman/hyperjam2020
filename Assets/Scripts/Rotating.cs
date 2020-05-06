@@ -3,9 +3,9 @@
 public class Rotating : MonoBehaviour
 {
     [SerializeField]
-    private float angularSpeed;
-    [SerializeField]
     private bool isClockwise = true;
+
+    public float angularSpeed;
 
     private void Update()
     {
