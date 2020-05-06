@@ -7,6 +7,13 @@ public class Pepperoncino : MonoBehaviour
     public float radius;
     public Transform obj;
 
+    private GameController gameController;
+
+    private void Start()
+    {
+        gameController = FindObjectOfType<GameController>();
+    }
+
     void Update()
     {
         obj.localPosition = new Vector3(radius, 0.0f, 0.0f);
@@ -14,7 +21,6 @@ public class Pepperoncino : MonoBehaviour
 
     public void OnPepperoncinoShot()
     {
-        //todo: naive reloding, change
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        gameController.Lost();
     }
 }
