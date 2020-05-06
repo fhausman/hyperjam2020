@@ -5,6 +5,8 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     [SerializeField]
+    private ShotSpawnerController player;
+    [SerializeField]
     private GameObject pauseScreen;
     [SerializeField]
     private GameObject lostScreen;
@@ -20,6 +22,8 @@ public class GameController : MonoBehaviour
     private Text scoreText;
     [SerializeField]
     private Toggle soundToggle;
+    [SerializeField]
+    private CameraShake cameraShake;
     [SerializeField]
     [Range(0, 1)]
     private float heathBarReductionSpeed = 1f;
@@ -111,21 +115,26 @@ public class GameController : MonoBehaviour
 
     public void Won()
     {
-        Time.timeScale = 0;
         winScreen.SetActive(true);
         winScoreText.text = "Score: \n" + score;
+        player.SetInactive();
     }
 
     public void Lost()
     {
-        Time.timeScale = 0;
         lostScreen.SetActive(true);
         lostScoreText.text = "Score: \n" + score;
+        player.SetInactive();
     }
 
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        Time.timeScale = 1;
+        player.SetActive();
+    }
+
+    public void CameraShake()
+    {
+        cameraShake.StartShaking();
     }
 }
