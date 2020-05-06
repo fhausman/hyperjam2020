@@ -8,8 +8,6 @@ public class ShotSpawnerController : MonoBehaviour
     [SerializeField]
     private Transform shotSpawn;
     [SerializeField]
-    private float shotSpeed;
-    [SerializeField]
     private float shotDelay;
 
     private float time;
@@ -37,7 +35,6 @@ public class ShotSpawnerController : MonoBehaviour
         {
             time = 0f;
             GameObject shot = Instantiate(bullet, shotSpawn.position, new Quaternion());
-            shot.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, shotSpeed));
         }
     }
 }

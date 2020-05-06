@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4151145660507564943}
   - component: {fileID: 1695872538543735366}
   - component: {fileID: 134751470441632297}
+  - component: {fileID: 283135382098325273}
   m_Layer: 0
   m_Name: Pepperoncino
   m_TagString: Untagged
@@ -45,8 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed9996f989e664488fe48232cdff598, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angularSpeed: 1
   isClockwise: 1
+  angularSpeed: 1
 --- !u!114 &134751470441632297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,6 +62,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 0
   obj: {fileID: 8456395941681425468}
+--- !u!114 &283135382098325273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4883433507082945646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43b3c4cbda3cb674bad2da6ea89aaa84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startAngle: 220
+  stopAngle: 320
+  speedRatio: 0.5
+  isSlowed: 0
 --- !u!1 &7549173571700795190
 GameObject:
   m_ObjectHideFlags: 0
