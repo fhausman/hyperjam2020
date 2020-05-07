@@ -261,18 +261,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &919227241 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4813604291905254449, guid: a511de34c81008a499f414453bcb5d5d,
-    type: 3}
-  m_PrefabInstance: {fileID: 4813604292143660888}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &999561017 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9190446224815452915, guid: d28372bd082936647a3d4fc5e0692383,
@@ -531,7 +519,7 @@ MonoBehaviour:
   scoreColor: {r: 1, g: 0, b: 0, a: 1}
   startScreen: {fileID: 4901592339010820338}
   ingameGUI: {fileID: 1016746868}
-  healthBar: {fileID: 919227241}
+  healthBar: {fileID: 4813604292143660890}
   scoreText: {fileID: 2028029810}
   pauseScreen: {fileID: 2070198657}
   lostScreen: {fileID: 1196563928}
@@ -1168,6 +1156,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 4813604292143660888}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4813604292143660890 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5364441535054642970, guid: a511de34c81008a499f414453bcb5d5d,
+    type: 3}
+  m_PrefabInstance: {fileID: 4813604292143660888}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &4901592339010820337 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1764179886763074588, guid: ddf9ea07a0d64ad448d8f5327641d33a,
