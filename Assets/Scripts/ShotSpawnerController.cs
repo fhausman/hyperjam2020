@@ -29,6 +29,11 @@ public class ShotSpawnerController : MonoBehaviour
         {
             Shoot();
         }
+#else
+        if (Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject())
+        {
+            Shoot();
+        }
 #endif
     }
 
