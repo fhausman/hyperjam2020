@@ -77,7 +77,6 @@ MonoBehaviour:
   startAngle: 220
   stopAngle: 320
   speedRatio: 0.5
-  isSlowed: 0
 --- !u!1 &7549173571700795190
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,7 +184,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.36, y: 0.58}
+  m_Size: {x: 1.2, y: 0.4}
   m_EdgeRadius: 0
 --- !u!114 &773192580337875493
 MonoBehaviour:
