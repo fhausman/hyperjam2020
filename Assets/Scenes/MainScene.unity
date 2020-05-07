@@ -1365,12 +1365,12 @@ PrefabInstance:
     - target: {fileID: 3980718158053188309, guid: fa67facc0361d864a89ffa7359b22bdc,
         type: 3}
       propertyPath: lengthInSec
-      value: 0.16
+      value: 0.18
       objectReference: {fileID: 0}
     - target: {fileID: 3980718158053188309, guid: fa67facc0361d864a89ffa7359b22bdc,
         type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 3980718158053188311, guid: fa67facc0361d864a89ffa7359b22bdc,
         type: 3}
