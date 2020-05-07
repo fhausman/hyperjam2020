@@ -6,12 +6,19 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+    [Header("Player")]
     [SerializeField]
     private ShotSpawnerController player;
+
+    [Header("GUI")]
     [SerializeField]
     private GameObject startScreen;
     [SerializeField]
-    private GameObject gui;
+    private GameObject ingameGUI;
+    [SerializeField]
+    private Image healthBar;
+    [SerializeField]
+    private Text scoreText;
     [SerializeField]
     private GameObject pauseScreen;
     [SerializeField]
@@ -23,16 +30,15 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private Text winScoreText;
     [SerializeField]
-    private Image healthBar;
-    [SerializeField]
-    private Text scoreText;
-    [SerializeField]
     private Toggle soundToggle;
     [SerializeField]
     private CameraShake cameraShake;
     [SerializeField]
     [Range(0, 1)]
     private float heathBarReductionSpeed = 1f;
+    [SerializeField]
+    [Range(0, 1)]
+    private float startPulseTime = 0.5f;
 
     private bool isPaused = false;
     private int score = 0;
@@ -63,6 +69,20 @@ public class GameController : MonoBehaviour
                 AudioListener.volume = 1;
             }
         }
+
+        if (!PlayerPrefs.HasKey("restart"))
+        {
+            PlayerPrefs.SetInt("restart", 0);
+        }
+        else
+        {
+            if (PlayerPrefs.GetInt("restart") == 1)
+            {
+                startScreen.SetActive(false);
+                player.SetActive();
+                PlayerPrefs.SetInt("restart", 0);
+            }
+        }
     }
 
     private void Start()
@@ -78,13 +98,13 @@ public class GameController : MonoBehaviour
             Mathf.Lerp(healthBar.rectTransform.sizeDelta.x, nextHealthBarWidth, heathBarReductionSpeed),
             healthBarSize.y);
 
-        if(startScreen.active)
+        if (startScreen.activeInHierarchy)
         {
-            if(Input.GetMouseButtonDown(0))
+            if (Input.GetButton("Fire1"))
             {
                 StartCoroutine(StartGame());
             }
-        }    
+        }
     }
 
     IEnumerator StartGame()
@@ -92,11 +112,11 @@ public class GameController : MonoBehaviour
         var animCtrl = startScreen.GetComponentInChildren<Animator>();
         animCtrl.Play("FastPulse");
 
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(startPulseTime);
 
         animCtrl.Play("BasicPulse");
         startScreen.SetActive(false);
-        gui.SetActive(true);
+        ingameGUI.SetActive(true);
         player.SetActive();
     }
 
@@ -106,14 +126,14 @@ public class GameController : MonoBehaviour
         {
             Time.timeScale = 1;
             pauseScreen.SetActive(false);
-            gui.SetActive(false);
+            ingameGUI.SetActive(true);
             isPaused = false;
         }
         else
         {
             Time.timeScale = 0;
             pauseScreen.SetActive(true);
-            gui.SetActive(true);
+            ingameGUI.SetActive(false);
             isPaused = true;
         }
     }
@@ -146,33 +166,30 @@ public class GameController : MonoBehaviour
 
     public void Won()
     {
-        //load another level?
-        //currentLevel++
-        //if (currentLevel < maxLevelsCount)
-        //{
-        //    SceneManager.LoadScene("Level" + currentLevel);
-        //}
-        //else
-        {
-            winScreen.SetActive(true);
-            winScoreText.text = "Score: \n" + score;
-            gui.SetActive(false);
-            player.SetInactive();
-        }
+        winScreen.SetActive(true);
+        winScoreText.text = "Score: \n" + score;
+        ingameGUI.SetActive(false);
+        player.SetInactive();
     }
 
     public void Lost()
     {
         lostScreen.SetActive(true);
         lostScoreText.text = "Score: \n" + score;
-        gui.SetActive(false);
+        ingameGUI.SetActive(false);
         player.SetInactive();
     }
 
     public void Restart()
     {
+        PlayerPrefs.SetInt("restart", 1);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        player.SetActive();
+    }
+
+    public void MainMenu()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void CameraShake()

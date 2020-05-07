@@ -48,3 +48,6 @@ TagManager:
   - name: Pizza
     uniqueID: 888236529
     locked: 0
+  - name: Player
+    uniqueID: 1866063275
+    locked: 0
