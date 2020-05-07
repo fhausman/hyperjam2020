@@ -41,6 +41,7 @@ public class GameController : MonoBehaviour
     private float startPulseTime = 0.5f;
 
     private bool isPaused = false;
+    private bool gameWon = false;
     private int score = 0;
     private Vector2 healthBarSize;
     private float nextHealthBarWidth;
@@ -79,6 +80,7 @@ public class GameController : MonoBehaviour
             if (PlayerPrefs.GetInt("restart") == 1)
             {
                 startScreen.SetActive(false);
+                ingameGUI.SetActive(true);
                 player.SetActive();
                 PlayerPrefs.SetInt("restart", 0);
             }
@@ -166,18 +168,22 @@ public class GameController : MonoBehaviour
 
     public void Won()
     {
+        gameWon = true;
         winScreen.SetActive(true);
-        winScoreText.text = "Score: \n" + score;
+        winScoreText.text = "SCORE: \n" + score;
         ingameGUI.SetActive(false);
         player.SetInactive();
     }
 
     public void Lost()
     {
-        lostScreen.SetActive(true);
-        lostScoreText.text = "Score: \n" + score;
-        ingameGUI.SetActive(false);
-        player.SetInactive();
+        if (!gameWon)
+        {
+            lostScreen.SetActive(true);
+            lostScoreText.text = "SCORE: \n" + score;
+            ingameGUI.SetActive(false);
+            player.SetInactive();
+        }
     }
 
     public void Restart()
