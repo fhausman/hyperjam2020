@@ -9,6 +9,8 @@ public class Destroyable : MonoBehaviour
     private int scoreOnHit = 1;
     [SerializeField]
     private UnityEvent onDestroy;
+    [SerializeField]
+    private UnityEvent onHit;
 
     private GameController gameController;
 
@@ -34,6 +36,10 @@ public class Destroyable : MonoBehaviour
             {
                 Destroy(gameObject);
                 onDestroy?.Invoke();
+            }
+            else
+            {
+                onHit?.Invoke();
             }
         }
     }
