@@ -25,7 +25,7 @@ public class ShotSpawnerController : MonoBehaviour
             return;
 
 #if UNITY_EDITOR
-        if (Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject())
+        if (Input.GetButton("Fire1") && !EventSystem.current.IsPointerOverGameObject())
         {
             Shoot();
         }
