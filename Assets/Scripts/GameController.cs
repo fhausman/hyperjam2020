@@ -47,8 +47,9 @@ public class GameController : MonoBehaviour
     private bool isPaused = false;
     private bool gameWon = false;
     private int score = 0;
-    private Vector2 healthBarSize;
-    private float nextHealthBarWidth;
+    private float anchorDelta = 0.25f;
+    private float nextAnchorMin;
+    private float nextAnchorMax;
     private int currentLevel = 1;
     private int maxLevelsCount = 2;
 
@@ -94,15 +95,19 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         scoreText.text = score.ToString();
-        healthBarSize = healthBar.rectTransform.sizeDelta;
-        nextHealthBarWidth = healthBarSize.x;
+        nextAnchorMax = healthBar.rectTransform.anchorMax.x;
+        nextAnchorMin = healthBar.rectTransform.anchorMin.x;
     }
 
     private void Update()
     {
-        healthBar.rectTransform.sizeDelta = new Vector2(
-            Mathf.Lerp(healthBar.rectTransform.sizeDelta.x, nextHealthBarWidth, heathBarReductionSpeed),
-            healthBarSize.y);
+        healthBar.rectTransform.anchorMin = new Vector2(
+            Mathf.Lerp(healthBar.rectTransform.anchorMin.x, nextAnchorMin, heathBarReductionSpeed),
+            healthBar.rectTransform.anchorMin.y);
+
+        healthBar.rectTransform.anchorMax = new Vector2(
+            Mathf.Lerp(healthBar.rectTransform.anchorMax.x, nextAnchorMax, heathBarReductionSpeed),
+            healthBar.rectTransform.anchorMin.y);
 
         if (startScreen.activeInHierarchy)
         {
@@ -146,7 +151,8 @@ public class GameController : MonoBehaviour
 
     public void ModifyHealthBar(float ratio)
     {
-        nextHealthBarWidth = healthBarSize.x * ratio;
+        nextAnchorMax = 0.5f + anchorDelta * ratio;
+        nextAnchorMin = 0.5f - anchorDelta * ratio;
     }
 
     public void IncreaseScore(int add)
