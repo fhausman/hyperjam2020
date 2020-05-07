@@ -12,6 +12,8 @@ public class GameController : MonoBehaviour
 
     [Header("GUI")]
     [SerializeField]
+    private Color scoreColor = Color.red;
+    [SerializeField]
     private GameObject startScreen;
     [SerializeField]
     private GameObject ingameGUI;
@@ -27,6 +29,8 @@ public class GameController : MonoBehaviour
     private Text lostScoreText;
     [SerializeField]
     private GameObject winScreen;
+    [SerializeField]
+    private Text winLevelText;
     [SerializeField]
     private Text winScoreText;
     [SerializeField]
@@ -170,7 +174,8 @@ public class GameController : MonoBehaviour
     {
         gameWon = true;
         winScreen.SetActive(true);
-        winScoreText.text = "SCORE: \n" + score;
+        winScoreText.text = $"SCORE: <color=#{ColorUtility.ToHtmlStringRGB(scoreColor)}>{score}</color>";
+        winLevelText.text = $"LEVEL <color=#{ColorUtility.ToHtmlStringRGB(scoreColor)}>{currentLevel}</color>\nCLEARED";
         ingameGUI.SetActive(false);
         player.SetInactive();
     }
@@ -180,7 +185,7 @@ public class GameController : MonoBehaviour
         if (!gameWon)
         {
             lostScreen.SetActive(true);
-            lostScoreText.text = "SCORE: \n" + score;
+            lostScoreText.text = $"SCORE: <color=#{ColorUtility.ToHtmlStringRGB(scoreColor)}>{score}</color>";
             ingameGUI.SetActive(false);
             player.SetInactive();
         }
@@ -201,5 +206,11 @@ public class GameController : MonoBehaviour
     public void CameraShake()
     {
         cameraShake.StartShaking();
+    }
+
+    public void NextLevel()
+    {
+        //TODO: real implementation
+        MainMenu();
     }
 }
